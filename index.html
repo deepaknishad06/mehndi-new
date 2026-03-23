@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Priya's Mehndi Art - Ludhiana</title>
+
+    <!-- Fonts and icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- index.html - place next to style.css and script.js in same folder -->
+
+    <header class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <h2 class="logo">👑 Priya's Mehndi</h2>
+            <nav class="nav-links" id="navLinks">
+                <a href="#hero" class="nav-link"><i class="ri-home-4-line"></i> Home</a>
+                <a href="#gallery" class="nav-link"><i class="ri-image-line"></i> Gallery</a>
+                <a href="#artists" class="nav-link"><i class="ri-user-star-line"></i> Artists</a>
+                <a href="#booking" class="nav-link"><i class="ri-calendar-event-line"></i> Book Now</a>
+                <a href="https://wa.me/918699358629?text=Hi%20Priya!%20Mehndi%20booking%20details"
+                    class="nav-link nav-whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i>
+                    WhatsApp</a>
+                <button id="adminLoginBtn" class="nav-link nav-admin" title="Admin Portal"><i
+                        class="ri-login-box-line"></i> Admin Portal</button>
+            </nav>
+            <div id="menuToggle" class="hamburger" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container hero-content">
+                <h1>Priya's Mehndi Art</h1>
+                <p>Ludhiana's Premier Bridal Mehndi Artist<br>5+ Years Experience | 1000+ Happy Brides</p>
+                <a href="https://wa.me/918699358629?text=Hi%20Priya!%20Bridal%20Mehndi%20booking"
+                    class="btn btn-primary btn-hero" target="_blank" rel="noopener">
+                    <i class="fa-brands fa-whatsapp"></i> Book Now on WhatsApp
+                </a>
+            </div>
+            <div class="hero-scroll">
+                <i class="ri-arrow-down-s-line"></i>
+            </div>
+        </section>
+
+        <section id="pricing" class="section pricing-section">
+            <div class="container">
+                <h2>💰 Group/Event Pricing</h2>
+                <div class="pricing-grid">
+                    <article class="pricing-card popular">
+                        <div class="badge"><i class="ri-star-fill"></i> MOST POPULAR</div>
+                        <h3><i class="ri-group-line"></i> 10–12 People</h3>
+                        <p class="price"><i class="ri-currency-inr"></i> ₹350 <span>/person</span></p>
+                        <p><i class="ri-calendar-line"></i> Total: ₹3500–4200</p>
+                        <a href="https://wa.me/918699358629?text=Hi!%2010-12%20people%20booking"
+                            class="btn btn-secondary" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i>
+                            Book Now</a>
+                    </article>
+
+                    <article class="pricing-card">
+                        <h3><i class="ri-group-line"></i> 5–9 People</h3>
+                        <p class="price"><i class="ri-currency-inr"></i> ₹400 <span>/person</span></p>
+                        <p><i class="ri-calendar-line"></i> Total: ₹2000–3600</p>
+                        <a href="https://wa.me/918699358629?text=Hi!%205-9%20people%20booking" class="btn btn-secondary"
+                            target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i> Book Now</a>
+                    </article>
+
+                    <article class="pricing-card">
+                        <h3><i class="ri-service-line"></i> 13+ People</h3>
+                        <p class="tag">SPECIAL OFFER</p>
+                        <p><i class="ri-hand-heart-line"></i> COD 100% | No Advance</p>
+                        <p><i class="ri-star-fill"></i> 1000+ Happy Brides Guarantee</p>
+                        <a href="https://wa.me/918699358629?text=Hi!%2013+%20people%20enquiry" class="btn btn-secondary"
+                            target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i> Get Quote</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section gallery-section">
+            <div class="container">
+                <h2>🍃 Choose Your Style</h2>
+                <div class="gallery-categories" id="galleryCategories">
+                    <button class="category-btn active" data-target="bridal-grid"><i class="ri-bride-line"></i> Bridal
+                        <span>+4 images</span></button>
+                    <button class="category-btn" data-target="arabic-grid"><i class="ri-pen-nib-line"></i> Arabic
+                        <span>+3 images</span></button>
+                    <button class="category-btn" data-target="kids-grid"><i class="ri-emotion-happy-line"></i> Kids
+                        <span>+3 images</span></button>
+                    <button class="category-btn" data-target="party-grid"><i class="ri-party-popper-line"></i> Party
+                        <span>+3 images</span></button>
+                </div>
+
+                <div class="gallery-grids">
+                    <div id="bridal-grid" class="image-grid active">
+                        <div class="image-card"><img src="1.jpeg" alt="image">
+                            <div class="overlay">Heavy Bridal</div>
+                        </div>
+                        <div class="image-card"><img src="2.jpeg" alt="Classic Bridal" />
+                            <div class="overlay">Classic Bridal</div>
+                        </div>
+                        <div class="image-card"><img src="3.jpeg" alt="Delicate Bridal" />
+                            <div class="overlay">Delicate Bridal</div>
+                        </div>
+
+                        <div class="image-card"><img src="https://via.placeholder.com/300x220?text=Statement+Bridal"
+                                alt="Statement Bridal" />
+                            <div class="overlay">Statement Bridal</div>
+                        </div>
+                    </div>
+
+                    <div id="arabic-grid" class="image-grid">
+                        <div class="image-card"><img src="https://via.placeholder.com/300x220?text=Flowing+Arabic"
+                                alt="Flowing Arabic" />
+                            <div class="overlay">Flowing Arabic</div>
+                        </div>
+                        <div class="image-card"><img src="https://via.placeholder.com/300x220?text=Modern+Arabic"
+                                alt="Modern Arabic" />
+                            <div class="overlay">Modern Arabic</div>
+                        </div>
+                        <div class="image-card"><img src="https://via.placeholder.com/300x220?text=Minimal+Arabic"
+                                alt="Minimal Arabic" />
+                            <div class="overlay">Minimal Arabic</div>
+                        </div>
+                    </div>
+
+                    <div id="kids-grid" class="image-grid">
+                        <div class="image-card"><img src="https://via.placeholder.com/300x220?text=Cute+Kids"
+                                alt="Cute Kids" />
+                            <div class="overlay">Cute Kids</div>
+                        </div>
+                        <div class="image-card"><img src="https://via.placeholder.com/300x220?text=Fun+Kids"
+                                alt="Fun Kids" />
+                            <div class="overlay">Fun Kids</div>
+                        </div>
+                        <div class="image-card"><img src="https://via.placeholder.com/300x220?text=Colorful+Kids"
+                                alt="Colorful Kids" />
+                            <div class="overlay">Colorful Kids</div>
+                        </div>
+                    </div>
+
+                    <div id="party-grid" class="image-grid">
+                        <div class="image-card"><img src="https://via.placeholder.com/300x220?text=Festival+Party"
+                                alt="Festival Party" />
+                            <div class="overlay">Festival Party</div>
+                        </div>
+                        <div class="image-card"><img src="https://via.placeholder.com/300x220?text=Event+Party"
+                                alt="Event Party" />
+                            <div class="overlay">Event Party</div>
+                        </div>
+                        <div class="image-card"><img src="https://via.placeholder.com/300x220?text=Themed+Party"
+                                alt="Themed Party" />
+                            <div class="overlay">Themed Party</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="artists" class="section artists-section">
+            <div class="container">
+                <h2>Meet Our Artists</h2>
+                <p>Expert mehndi artists with 5+ years experience</p>
+                <div id="artistsGrid" class="artist-grid"></div>
+            </div>
+        </section>
+
+        <div id="artistModal" class="artist-modal" aria-hidden="true">
+            <div id="artistModalOverlay" class="artist-modal-overlay" data-close="true"></div>
+            <div class="artist-modal-content" role="dialog" aria-modal="true" aria-labelledby="artistModalName">
+                <button id="artistModalClose" class="artist-modal-close" aria-label="Close popup">&times;</button>
+                <div class="artist-modal-body">
+                    <img id="artistModalImage" src="" alt="Artist image" />
+                    <h3 id="artistModalName"></h3>
+                    <p id="artistModalTitle" class="artist-modal-title"></p>
+                    <p id="artistModalBio" class="artist-modal-bio"></p>
+                    <p id="artistModalExperience" class="artist-modal-experience"></p>
+                    <div id="artistModalStyles" class="artist-modal-styles"></div>
+                    <a id="artistModalWhatsapp" href="" target="_blank" rel="noopener" class="btn btn-primary">
+                        <i class="fa-brands fa-whatsapp"></i> Contact on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <section id="booking" class="section booking-section">
+            <div class="container">
+                <h2>Book Your Mehndi Appointment</h2>
+                <form id="bookingForm" class="booking-form" novalidate>
+                    <div class="form-row">
+                        <label for="fullName"><i class="fa fa-user"></i> Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required />
+                        <small class="error-message"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" pattern="^[0-9]{10}$" required
+                            placeholder="10 digit mobile" />
+                        <small class="error-message"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="email"><i class="fa fa-envelope"></i> Email Address *</label>
+                        <input type="email" id="email" name="email" required />
+                        <small class="error-message"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="location"><i class="fa fa-map-marker-alt"></i> Address / Location *</label>
+                        <input type="text" id="location" name="location" required />
+                        <small class="error-message"></small>
+                    </div>
+
+                    <div class="form-row form-row-inline">
+                        <div>
+                            <label for="date"><i class="fa fa-calendar-alt"></i> Preferred Date *</label>
+                            <input type="date" id="date" name="date" required />
+                            <small class="error-message"></small>
+                        </div>
+                        <div>
+                            <label for="time"><i class="fa fa-clock"></i> Preferred Time *</label>
+                            <input type="time" id="time" name="time" required />
+                            <small class="error-message"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="category"><i class="fa fa-layer-group"></i> Category *</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select category</option>
+                            <option value="Bridal">Bridal Mehndi</option>
+                            <option value="Arabic">Arabic Style</option>
+                            <option value="Kids">Kids Mehndi</option>
+                            <option value="Party">Party Wear</option>
+                            <option value="Group">Group/Event</option>
+                        </select>
+                        <small class="error-message"></small>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="type"><i class="fa fa-hand-paper"></i> Type *</label>
+                        <select id="type" name="type" required>
+                            <option value="">Select type</option>
+                            <option value="Full">Full Hands</option>
+                            <option value="Half">Half Hands</option>
+                        </select>
+                        <small class="error-message"></small>
+                    </div>
+
+                    <div id="groupDetails" class="form-row group-details hidden">
+                        <div>
+                            <label for="groupSize">Group Size</label>
+                            <select id="groupSize" name="groupSize">
+                                <option value="">Select group size</option>
+                                <option value="1-4">1–4</option>
+                                <option value="5-9">5–9</option>
+                                <option value="10-12">10–12</option>
+                                <option value="13+">13+</option>
+                            </select>
+                            <small class="error-message"></small>
+                        </div>
+                        <div>
+                            <label for="occasion">Occasion</label>
+                            <select id="occasion" name="occasion">
+                                <option value="">Select occasion</option>
+                                <option value="Wedding">Wedding</option>
+                                <option value="Party">Party/Event</option>
+                            </select>
+                            <small class="error-message"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-row amount-row">
+                        <span>Total: </span><strong id="totalAmount">₹0</strong>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2>Ready for Your Perfect Mehndi? ✨</h2>
+                <p>📍 Serving Ludhiana & nearby areas | Natural henna | Guaranteed dark stain</p>
+                <a href="https://wa.me/918699358629?text=Hi%20Priya!%20Mehndi%20booking" class="btn btn-primary"
+                    target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Book on WhatsApp</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Admin Login Modal -->
+    <div id="adminLoginModal" class="admin-modal" aria-hidden="true">
+        <div class="admin-modal-overlay" data-close="true"></div>
+        <div class="admin-modal-content" role="dialog" aria-modal="true">
+            <button class="admin-modal-close" aria-label="Close">&times;</button>
+            <h2>Admin Portal</h2>
+            <form id="adminLoginForm" class="admin-login-form">
+                <div class="form-row">
+                    <label for="adminUser"><i class="ri-user-line"></i> Username</label>
+                    <input type="text" id="adminUser" placeholder="Enter username" required />
+                </div>
+                <div class="form-row">
+                    <label for="adminPass"><i class="ri-lock-line"></i> Password</label>
+                    <input type="password" id="adminPass" placeholder="Enter password" required />
+                </div>
+                <button type="submit" class="btn btn-primary">Login to Admin Panel</button>
+            </form>
+            <p class="admin-hint">Demo: user: <strong>admin</strong> | pass: <strong>priya123</strong></p>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
