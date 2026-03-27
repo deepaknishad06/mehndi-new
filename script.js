@@ -37,35 +37,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Admin Login Handler
-  const ADMIN_USERNAME = 'admin';
-  const ADMIN_PASS_HASH = '0a8b8dfad3f637d7d30fed7b108c5c5986c4775d14cab26ec9279866eba99116'; // SHA-256(priya123)
-
-  function sha256(text) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(text);
-    return crypto.subtle.digest('SHA-256', data).then(hashBuffer => {
-      const hashArray = Array.from(new Uint8Array(hashBuffer));
-      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    });
-  }
-
+  // Admin Login Handler (backend auth)
   adminLoginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const username = document.getElementById('adminUser').value;
-    const password = document.getElementById('adminPass').value;
+    const username = document.getElementById('adminUser').value.trim();
+    const password = document.getElementById('adminPass').value.trim();
 
-    if (username === ADMIN_USERNAME) {
-      const passwordHash = await sha256(password);
-      if (passwordHash === ADMIN_PASS_HASH) {
-        sessionStorage.setItem('adminLoggedIn', 'true');
-        sessionStorage.setItem('adminUser', username);
-        window.location.href = 'admin.html';
-        return;
-      }
+    if (!username || !password) {
+      alert('Enter admin username and password.');
+      return;
     }
 
-    alert('Invalid credentials. Use valid admin username & password.');
+    fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    })
+      .then(response => response.json().then(data => ({ status: response.status, body: data })))
+      .then(({ status, body }) => {
+        if (status !== 200 || !body.token) {
+          throw new Error(body.message || 'Login failed');
+        }
+        sessionStorage.setItem('adminLoggedIn', 'true');
+        sessionStorage.setItem('adminUser', body.username || username);
+        sessionStorage.setItem('authToken', body.token);
+        window.location.href = 'admin.html';
+      })
+      .catch((error) => {
+        console.error('Admin login error', error);
+        alert('Invalid admin credentials or server error.');
+      });
   });
 
   document.querySelectorAll('.nav-link').forEach(link => {
@@ -216,6 +217,48 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   renderArtists();
+
+  const themeToggle = document.getElementById('themeToggle');
+  const adminThemeToggle = document.getElementById('adminThemeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const rootElement = document.documentElement;
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      rootElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      if (themeIcon) themeIcon.className = 'ri-sun-line';
+      if (themeToggle) themeToggle.setAttribute('aria-label', 'Switch to light mode');
+      if (adminThemeToggle) adminThemeToggle.textContent = '☀️ Light';
+    } else {
+      rootElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      if (themeIcon) themeIcon.className = 'ri-moon-line';
+      if (themeToggle) themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+      if (adminThemeToggle) adminThemeToggle.textContent = '🌙 Dark';
+    }
+  }
+
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  applyTheme(savedTheme);
+
+  [themeToggle, adminThemeToggle].forEach(btn => {
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const current = rootElement.getAttribute('data-theme') || 'light';
+      applyTheme(current === 'light' ? 'dark' : 'light');
+    });
+  });
+
+  // Loading spinner helper
+  window.createMehndiLoader = () => {
+    const outer = document.createElement('div');
+    outer.className = 'loader';
+    const inner = document.createElement('div');
+    inner.className = 'loader-inner';
+    outer.appendChild(inner);
+    return outer;
+  };
 
   // Gallery tabs... (rest of existing code continues after this snippet)
 
@@ -384,7 +427,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const fullMessage = encodeURIComponent(messageParts.join('\n'));
     const waUrl = `https://wa.me/918699358629?text=${fullMessage}`;
 
-    // Store booking in localStorage for admin portal
     const bookingData = {
       fullName: document.getElementById('fullName').value.trim(),
       phone: document.getElementById('phone').value.trim(),
@@ -402,15 +444,29 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'BK-' + Date.now()
     };
 
-    const existingBookings = JSON.parse(localStorage.getItem('mehndiBookings')) || [];
-    existingBookings.push(bookingData);
-    localStorage.setItem('mehndiBookings', JSON.stringify(existingBookings));
+    fetch('/api/bookings', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(bookingData)
+    })
+      .then(response => response.json())
+      .then((result) => {
+        if (!result.bookingId) {
+          throw new Error(result.message || 'Unable to save booking');
+        }
 
-    alert('Booking confirmed! Redirecting to WhatsApp...');
-    window.open(waUrl, '_blank');
-    bookingForm.reset();
-    totalAmountSpan.textContent = '₹0';
-    updateGroupFields();
+        alert('Booking saved! Redirecting to WhatsApp...');
+        window.open(waUrl, '_blank');
+        bookingForm.reset();
+        totalAmountSpan.textContent = '₹0';
+        updateGroupFields();
+      })
+      .catch((error) => {
+        console.error('Booking save failed', error);
+        alert('Failed to save booking on server. Please try again later.');
+      });
   });
 
   updateGroupFields();
