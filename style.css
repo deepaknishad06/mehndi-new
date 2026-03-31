@@ -866,7 +866,7 @@ select:focus {
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
     .section {
         padding: 4rem 0 2rem;
     }
@@ -878,6 +878,68 @@ select:focus {
     .form-row-inline {
         grid-template-columns: 1fr;
     }
+
+    /* Horizontal scrolling for gallery images */
+    .image-grid {
+        display: none;
+    }
+
+    .image-grid.active {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        gap: 0.8rem;
+        padding-bottom: 1rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .image-grid.active::-webkit-scrollbar {
+        display: none;
+    }
+
+    .image-grid.active .image-card {
+        flex-shrink: 0;
+        min-width: 220px;
+        width: 260px;
+        height: 190px;
+        scroll-snap-align: start;
+    }
+
+    .image-grid.active .image-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Horizontal scrolling for artist cards */
+    .artists-section .artist-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .artists-section .artist-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .artist-card {
+        flex-shrink: 0;
+        min-width: 280px;
+        scroll-snap-align: start;
+    }
+
+    .artist-card img {
+        height: 200px;
+    }
+
 }
 
 /* Dark Mode Styles */
