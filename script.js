@@ -108,8 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
       bio: 'Priya is a leading bridal mehndi artist with over 5 years of experience. She specializes in heavy traditional bridal designs and royal Rajasthani patterns.',
       experience: '5+ Years | 1000+ Events',
       styles: ['Bridal', 'Arabic', 'Party', 'Kids'],
-      image: 'https://via.placeholder.com/450x320?text=Priya',
-      whatsappText: 'Hi%20Priya!%20I%20want%20to%20book%20you%20for%20mehndi'
+      image: 'assests/pf1.jpeg',
+      whatsappText: 'Hi%20Priya!%20I%20want%20to%20book%20you%20for%20mehndi' 
     },
     {
       id: 'artist2',
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
       bio: 'Simran focuses on modern Arabic and party wear designs, perfect for young brides and festive occasions.',
       experience: '4+ Years | 600+ Events',
       styles: ['Arabic', 'Party', 'Kids'],
-      image: 'https://via.placeholder.com/450x320?text=Simran',
+      image: 'assests/pf1.jpeg',
       whatsappText: 'Hi%20Simran!%20I%20want%20to%20book%20you%20for%20Arabic%20Mehndi'
     },
     {
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
       bio: 'Anjali blends cute and creative motifs for kids and casual parties, and can handle high-volume deadlines with calm precision.',
       experience: '3+ Years | 350+ Events',
       styles: ['Kids', 'Party', 'Minimal'],
-      image: 'https://via.placeholder.com/450x320?text=Anjali',
+      image: 'assests/pf1.jpeg',
       whatsappText: 'Hi%20Anjali!%20I%20want%20to%20book%20you%20for%20kids%20mehndi'
     },
     {
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
       bio: 'Riya offers graceful, elegant patterns with detailed finishing. She is known for subtle luxury style and consistent dark stains.',
       experience: '5+ Years | 800+ Events',
       styles: ['Bridal', 'Party', 'Arabic'],
-      image: 'https://via.placeholder.com/450x320?text=Riya',
+      image: 'assests/pf1.jpeg',
       whatsappText: 'Hi%20Riya!%20I%20want%20to%20book%20you%20for%20bridal%20mehndi'
     }
   ];
