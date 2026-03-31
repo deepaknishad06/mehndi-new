@@ -902,9 +902,10 @@ select:focus {
 
     .image-grid.active .image-card {
         flex-shrink: 0;
-        min-width: 220px;
-        width: 260px;
-        height: 190px;
+        min-width: min(220px, 90vw);
+        /* ensure good mobile fit */
+        width: min(220px, 90vw);
+        height: 165px;
         scroll-snap-align: start;
     }
 
@@ -912,6 +913,12 @@ select:focus {
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+
+    .artists-section .artist-grid .artist-card {
+        flex-shrink: 0;
+        min-width: min(220px, 90vw);
+        max-width: 260px;
     }
 
     /* Horizontal scrolling for artist cards */
